@@ -19,43 +19,34 @@ $(document).ready(function() {
 
     $('#powersaving-on').click(function() {
         thermostat.switchPowerSavingModeOn();
-        $('#power-saving').text('on')
+        $('#power-saving').text('ON')
         updateTemperature();
     });
 
     $('#powersaving-off').click(function() {
         thermostat.switchPowerSavingModeOff();
-        $('#power-saving').text('off')
+        $('#power-saving').text('OFF')
         updateTemperature();
     });
 
     function updateTemperature() {
-        $('#temperature').text(thermostat.temperature);
+        $('#temperature').text(thermostat.temperature).attr('class', thermostat.energyUsage());
     };
+
+    $('#select-city').submit(function(event) {
+        event.preventDefault();
+        var city = $('#current-city').val();
+        displayWeather(city);
+    });
 
     function displayWeather(city) {
         var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
-        var token = '&appid=a3d9eb01d4de82b9b8d0849ef604dbed';
+        var token = '&appid=da6424f2d1b1c96b8ad2199aa0ac26e5';
         var units = '&units=metric';
         $.get(url + token + units, function(data) {
             $('#current-temperature').text(data.main.temp);
-        })
+        });
 
-        $('#current-city').change(function() {
-            var city = $('#current-city').val();
-            $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
-                $('#current-temperature').text(data.main.temp)
-            })
-        })
-
-
-        displayWeather('London');
-
-        $('#select-city').submit(function(event) {
-            event.preventDefault();
-            var city = $('#current-city').val();
-            displayWeather(city);
-        })
-    }
+    };
 
 });

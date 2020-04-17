@@ -9,3 +9,62 @@
 .high-usage {
     color: red;
 }
+
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: larger;
+    height: 100vh;
+}
+
+.page-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+
+}
+
+.box {
+    border: 2px solid 292D3C;
+    width: 450px;
+    height: 150px;
+}
+
+.welcome {
+    color: #002E4F;
+    box-sizing: border-box;
+    padding: 80px;
+    text-align: center;
+    width: 100%;
+}
+
+.weather {
+    color: #002E4F;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+    width: 100%;
+    margin-top: auto;
+}
+
+.bodyimage {
+    background-image: url("./Images/P5220698.JPG");
+    background-origin: content-box;
+    background-position: centre;
+    background-size: cover;
+    background-color: black;
+    background-repeat: no-repeat;
+}
+
+.button {
+    background-color: white;
+    border: 1px solid black;
+}
+.button:hover {
+    background-color: black;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transform: translateY(4px);
+}
+
